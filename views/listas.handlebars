@@ -1,0 +1,26 @@
+<h1 class="text-secondary mt-4 mb-4 fs-3">Lista</h1>
+
+<a class="d-block mb-4 text-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/">return to Home</a>
+
+<table class="table table-striped border">
+    <tr>
+        <th>ID</th>
+        <th>Produto</th>
+        <th>Preço</th>
+        <th>Descrição</th>
+    </tr>
+    {{#each lista}}
+        <tr>
+            <td>#{{this.iD}}</td>
+            <td>{{this.Produto}}</td>
+            <td>R${{this.Preco}}</td>
+            <td>{{this.Descricao}}</td>
+        </tr>
+    {{/each}}
+</table>
+
+{{!-- {{#each lista}}
+    {{this.Produto}}
+    {{this.Preco}}
+    {{this.Descricao}}
+{{/each}} --}}

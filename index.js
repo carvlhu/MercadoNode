@@ -60,6 +60,37 @@ app.post("/lista/insertProdutos", (req, res) => {
     })
 })
 
+// Listando e buscando por ID
+app.get('/lista/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = `SELECT * FROM Produtos WHERE id = ${id}`;
+
+    conn.query(sql, function(err, data) {
+        if (err) {
+            console.log(err);
+        }
+
+        const  detalhes = data[0];
+
+        res.render('detalhes', {detalhes})
+    })
+
+});
+
+// Removendo Item
+app.post('/lista/remove/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = `DELETE from Produtos WHERE iD = ${id}`;
+
+    conn.query(sql, function(err) {
+        if (err) {
+            console.log(err);
+        }
+
+        res.redirect('/lista');
+    });
+})
+
 // Conexão com banco de dados
 const conn = mysql2.createConnection({
     host: "localhost",

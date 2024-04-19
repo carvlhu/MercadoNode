@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg">
+    <ul class="nav nav-underline">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Adicionar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/lista">Mercado</a>
+        </li>
+    </ul>
+</nav>
+
+<h1>Detalhes</h1>
+
+<div class="card col-8 text-center">
+    <div class="card-body">
+        <h5 class="card-title">{{detalhes.Produto}}</h5>
+        <strong class="">R${{detalhes.Preco}}</strong>
+        <p class="card-text">{{detalhes.Descricao}}</p>
+
+        <form action="/lista/remove/{{detalhes.iD}}" method="post">
+            <input type="submit" value="Remover" class="btn btn-danger">
+        </form>
+    </div>
+</div>

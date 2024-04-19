@@ -1,3 +1,14 @@
+<nav class="navbar navbar-expand-lg">
+    <ul class="nav nav-underline">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Adicionar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/lista">Mercado</a>
+        </li>
+    </ul>
+</nav>
+
 <h1 class="text-secondary mt-4 mb-4 fs-3">Lista</h1>
 
 <a class="d-block mb-4 text-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="/">return to Home</a>
@@ -8,6 +19,7 @@
         <th>Produto</th>
         <th>Preço</th>
         <th>Descrição</th>
+        <th class="text-center">Detalhes</th>
     </tr>
     {{#each lista}}
         <tr>
@@ -15,6 +27,9 @@
             <td>{{this.Produto}}</td>
             <td>R${{this.Preco}}</td>
             <td>{{this.Descricao}}</td>
+            <td class="text-center">
+                <a class="d-block text-secondary link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="lista/{{this.iD}}">Ver Detalhes</a>
+            </td>
         </tr>
     {{/each}}
 </table>

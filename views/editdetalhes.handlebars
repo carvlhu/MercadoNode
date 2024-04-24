@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg">
+    <ul class="nav nav-underline">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Adicionar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/lista">Mercado</a>
+        </li>
+    </ul>
+</nav>
+
+<h1>Editando detalhes</h1>
+
+<form action="/detalhes/updatelista" method="post">
+    <input type="hidden" name="iD" value={{listaDetalhes.iD}}>
+
+    <div class="form-group mb-3">
+        <label for="produto" class="mb-1">Produto</label>
+        <input placeholder="Edite a produto" type="text" class="form-control" value="{{listaDetalhes.Produto}}" id="produto" name="Produto">
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="preco" class="mb-1">Preço</label>
+        <input placeholder="Edite o preço" type="text" class="form-control" value="{{listaDetalhes.Preco}}" id="preco" name="Preco">
+    </div>
+
+    <div class="form-group mb-5">
+        <label for="descricao" class="mb-1">Descrição</label>
+        <input placeholder="Edite a descrição" type="text" class="form-control" value="{{listaDetalhes.Descricao}}" id="descricao" name="Descricao">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+</form>

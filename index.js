@@ -89,6 +89,45 @@ app.post('/lista/remove/:id', (req, res) => {
 
         res.redirect('/lista');
     });
+});
+
+// Página de edição por ID
+app.get('/detalhes/edit/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    const sql = `SELECT * FROM Produtos WHERE iD = ${id}`;
+
+    conn.query(sql, function(err, data) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        const listaDetalhes = data[0];
+
+        res.render('editdetalhes', { listaDetalhes });
+    });
+
+});
+
+// Edição a update
+app.post('/detalhes/updatelista', (req, res) => {
+    const id = req.body.iD;
+    const produto = req.body.Produto;
+    const preco = req.body.Preco;
+    const descricao = req.body.Descricao;
+
+    const sql = `UPDATE Produtos set Produto = '${produto}', Preco = '${preco}', Descricao = '${descricao}' WHERE iD = '${id}'`;
+
+    conn.query(sql, function (err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        res.redirect('/lista')
+    })
 })
 
 // Conexão com banco de dados
